@@ -1,0 +1,111 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --perspective: 1200px;
+    --space-bg: #020617;
+  }
+
+  html, body, #root {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100vh;
+    background-color: var(--space-bg);
+    /* Prevents scrollbars from breaking the 3D layout */
+    overflow-x: hidden; 
+    scroll-behavior: smooth;
+  }
+
+  body {
+    /* Space background with deep-field depth */
+    background: radial-gradient(circle at 50% 50%, #0f172a 0%, #020617 100%);
+    color: rgba(255, 255, 255, 0.9);
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Global 3D Container class */
+  .floating-3d {
+    transform-style: preserve-3d;
+    perspective: var(--perspective);
+  }
+}
+
+/* --- Space Effects & Animations --- */
+
+/* Star-like subtle grain */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("https://grainy-gradients.vercel.app/noise.svg");
+  opacity: 0.05;
+  pointer-events: none;
+  z-index: 50;
+}
+
+/* Floating Animation for 3D elements */
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(2deg); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Glassmorphism utility for floating cards */
+.glass-card {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.glass-card:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(59, 130, 246, 0.3);
+  /* "Lifts" the card toward the user on hover */
+  transform: translateY(-10px) translateZ(20px) scale(1.02);
+  box-shadow: 0 35px 60px -15px rgba(59, 130, 246, 0.2);
+}
+
+/* Scrollbar styling for the Space theme */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #020617;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #3b82f6;
+}
+
+/* --- Clean Up Vite Defaults --- */
+h1, h2, h3, h4 {
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: opacity 0.2s;
+}
+
+a:hover {
+  opacity: 0.8;
+}
