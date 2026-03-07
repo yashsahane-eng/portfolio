@@ -40,7 +40,7 @@ const Contact = () => {
                   </a>
                 </Button>
                 <Button variant="outline" size="icon" className="rounded-full border-border/50 hover:bg-slate-900 transition-colors" asChild>
-                  <a href="https://linkedin.com/in/yash-sahane" target="_blank" rel="noopener noreferrer">
+                  <a href="https://www.linkedin.com/in/yash-sahane-5a6340219" target="_blank" rel="noopener noreferrer">
                     <Linkedin className="w-5 h-5" />
                   </a>
                 </Button>
