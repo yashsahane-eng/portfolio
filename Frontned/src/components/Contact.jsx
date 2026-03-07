@@ -35,7 +35,7 @@ const Contact = () => {
               
               <div className="flex gap-2">
                 <Button variant="outline" size="icon" className="rounded-full border-border/50 hover:bg-slate-900 transition-colors" asChild>
-                  <a href="https://github.com/Yash-Sahane" target="_blank" rel="noopener noreferrer">
+                  <a href="https://github.com/yashsahane-eng" target="_blank" rel="noopener noreferrer">
                     <Github className="w-5 h-5" />
                   </a>
                 </Button>
