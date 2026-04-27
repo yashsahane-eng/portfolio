@@ -2,6 +2,7 @@ import React from 'react';
 import { Button } from "./ui/button";
 import { Badge } from "./ui/badge";
 import { ArrowRight, Sparkles } from "lucide-react";
+import CodingAvatar from "./CodingAvatar";
 
 const Hero = () => {
   return (
@@ -18,7 +19,7 @@ const Hero = () => {
               <Sparkles className="w-3 h-3" /> Oracle Certified Gen-AI Professional
             </Badge>
             
-            <h1 className="text-5xl md:text-7xl font-black tracking-tighter leading-[]">
+            <h1 className="text-5xl md:text-7xl font-black tracking-tighter leading-tight">
               full-stack <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400">
                 AI development .
@@ -44,9 +45,14 @@ const Hero = () => {
           </div>
         </div>
 
-        {/* Right Content: Stats/Info Cards */}
+        {/* Right Content: Stats/Info Cards & Avatar */}
         <div className="relative hidden lg:block">
-          <div className="grid grid-cols-2 gap-4">
+          {/* Coding Avatar floats in negative space above the cards */}
+          <div className="absolute -top-44 -right-4 z-0 hover:scale-105 transition-transform duration-500 origin-bottom">
+            <CodingAvatar />
+          </div>
+          
+          <div className="grid grid-cols-2 gap-4 mt-28 relative z-10">
             <div className="space-y-4 pt-12">
               <div className="p-6 rounded-2xl bg-card/30 border border-border/50 backdrop-blur-md hover:border-primary/50 transition-colors shadow-2xl">
                 <h3 className="text-3xl font-bold text-blue-400">100+</h3>

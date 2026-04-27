@@ -32,14 +32,14 @@ const Projects = () => {
       subtitle: "Real-Time Collaboration Platform",
       description: "A real-time polling platform supporting concurrent users per room with sub-second live vote updates using Socket.IO and MongoDB. Includes fairness controls to prevent duplicate or invalid voting and event-driven synchronization across all connected clients.",
       tech: ["React.js", "Node.js", "Socket.IO", "MongoDB"],
-      link: "#"
+      link: "https://live-vote-poll.vercel.app/"
     },
     {
       title: "Prompter",
       subtitle: "AI Prompt Optimization Extension",
       description: "A Chrome/Brave extension that transforms rough prompts into structured development-ready prompts inside ChatGPT, including prompt scoring, rewriting, inline UI injection and AI-assisted prompt enhancement.",
       tech: ["JavaScript", "Manifest V3", "React", "Vite"],
-      link: "#"
+      link: "https://prompter-extension.vercel.app/"
     }
   ];
 
