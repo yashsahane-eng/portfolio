@@ -53,7 +53,7 @@ const Navbar = () => {
         {/* View CV Button - No Download, Opens in New Tab */}
         <div className="flex items-center gap-2">
           <a 
-            href="/April-26.pdf" 
+            href="/Resume May - Yash Sahane.pdf" 
             target="_blank" 
             rel="noopener noreferrer"
             className="block"
