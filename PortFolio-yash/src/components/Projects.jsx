@@ -7,6 +7,13 @@ import { cn } from "../lib/utils";
 const Projects = () => {
   const projects = [
     {
+      title: "AI Prompt Library",
+      subtitle: "Prompt Management Platform",
+      description: "A full-stack AI Prompt Management application built with React, TypeScript, Express, and MongoDB. Enables users to create, manage, organize, and reuse prompts with search, filtering, favorites, pinning, duplication, import/export, and a clean dashboard.",
+      tech: ["React", "TypeScript", "Express", "MongoDB"],
+      link: "https://ai-prompt-library-gold.vercel.app/"
+    },
+    {
       title: "GitaFy",
       subtitle: "AI-Powered Wisdom Giver",
       description: "An AI-powered MERN application using Google Gemini API for emotion analysis and personalized Bhagavad Gita responses.",
@@ -42,10 +49,6 @@ const Projects = () => {
       link: "https://prompter-extension.vercel.app/"
     }
   ];
-
-  /* First 3 cards fill the top row; last 2 center beneath them */
-  const topRow = projects.slice(0, 3);
-  const bottomRow = projects.slice(3);
 
   const renderCard = (project, index) => (
     <Card 
@@ -107,14 +110,9 @@ const Projects = () => {
           <div className="h-1 w-20 bg-primary rounded-full" />
         </div>
 
-        {/* Row 1 — 3 cards */}
+        {/* 6 projects grid — 3 cols desktop, 2 cols tablet, 1 col mobile */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {topRow.map((project, index) => renderCard(project, index))}
-        </div>
-
-        {/* Row 2 — 2 cards, centered to align symmetrically */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-6 mt-6 max-w-4xl mx-auto">
-          {bottomRow.map((project, index) => renderCard(project, index + 3))}
+          {projects.map((project, index) => renderCard(project, index))}
         </div>
       </div>
     </section>
