@@ -22,24 +22,24 @@ const Hero = () => {
             <h1 className="text-5xl md:text-7xl font-black tracking-tighter leading-tight">
               full-stack <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400">
-                AI development .
+                AI development.
               </span>
             </h1>
             
-            <p className="text-lg md:text-xl text-slate-400 max-w-lg leading-relaxed">
-              I'm <span className="text-white font-medium">Yash Sahane</span>, an E&TC Engineer 
+            <p className="portfolio-hero-copy text-lg md:text-xl text-slate-400 max-w-lg leading-relaxed">
+              I'm <strong className="font-medium">Yash Sahane</strong>, an E&TC Engineer
               bridging the gap between hardware intuition and full-stack AI development. 
               Currently  <span className="text-blue-400">Open to Work</span>.
             </p>
           </div>
 
           <div className="flex flex-wrap gap-4">
-            <Button size="lg" className="rounded-full px-8 gap-2 group shadow-lg shadow-blue-500/20" asChild>
+            <Button size="lg" className="portfolio-button-primary rounded-full px-8 gap-2 group" asChild>
               <a href="#projects">
                 Explore Work <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </a>
             </Button>
-            <Button variant="outline" size="lg" className="rounded-full px-8 border-border/50 hover:bg-slate-900" asChild>
+            <Button variant="outline" size="lg" className="portfolio-button-secondary rounded-full px-8" asChild>
               <a href="#contact">Let's Talk</a>
             </Button>
           </div>
@@ -48,27 +48,27 @@ const Hero = () => {
         {/* Right Content: Stats/Info Cards & Avatar */}
         <div className="relative hidden lg:block">
           {/* Coding Avatar floats in negative space above the cards */}
-          <div className="absolute -top-44 -right-4 z-0 hover:scale-105 transition-transform duration-500 origin-bottom">
+          <div className="portfolio-avatar-stage absolute -top-44 -right-4 z-0 hover:scale-105 transition-transform duration-500 origin-bottom">
             <CodingAvatar />
           </div>
           
           <div className="grid grid-cols-2 gap-4 mt-28 relative z-10">
             <div className="space-y-4 pt-12">
-              <div className="p-6 rounded-2xl bg-card/30 border border-border/50 backdrop-blur-md hover:border-primary/50 transition-colors shadow-2xl">
+              <div className="portfolio-stat-card p-6 rounded-2xl">
                 <h3 className="text-3xl font-bold text-blue-400">100+</h3>
                 <p className="text-sm text-slate-500 uppercase tracking-widest font-semibold">DSA Problems</p>
               </div>
-              <div className="p-6 rounded-2xl bg-card/30 border border-border/50 backdrop-blur-md hover:border-primary/50 transition-colors shadow-2xl">
+              <div className="portfolio-stat-card p-6 rounded-2xl">
                 <h3 className="text-3xl font-bold text-emerald-400">Bachelor of Engineering</h3>
                 <p className="text-sm text-slate-500 uppercase tracking-widest font-semibold">At Smt.Kashibai Navale College Of Engineering (2026)</p>
               </div>
             </div>
             <div className="space-y-4">
-              <div className="p-6 rounded-2xl bg-card/30 border border-border/50 backdrop-blur-md hover:border-primary/50 transition-colors shadow-2xl">
+              <div className="portfolio-stat-card p-6 rounded-2xl">
                 <h3 className="text-3xl font-bold text-white">MERN</h3>
                 <p className="text-sm text-slate-500 uppercase tracking-widest font-semibold">Specialization</p>
               </div>
-              <div className="p-6 rounded-2xl bg-primary/10 border border-primary/20 backdrop-blur-md shadow-2xl">
+              <div className="portfolio-stat-card p-6 rounded-2xl">
                 <div className="flex gap-1 mb-2">
                   <div className="w-2 h-2 rounded-full bg-blue-400 animate-bounce" />
                   <div className="w-2 h-2 rounded-full bg-blue-400 animate-bounce [animation-delay:0.2s]" />

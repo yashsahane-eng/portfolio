@@ -2,7 +2,6 @@ import React from 'react';
 import { Card, CardHeader, CardTitle, CardContent } from "./ui/card";
 import { Badge } from "./ui/badge";
 import { Button } from "./ui/button";
-import { cn } from "../lib/utils";
 
 const Projects = () => {
   const projects = [
@@ -90,7 +89,7 @@ const Projects = () => {
           <a href={project.link} target="_blank" rel="noopener noreferrer">
             <Button 
               variant="outline" 
-              className="w-full border-border/50 hover:bg-primary hover:text-primary-foreground transition-all duration-300 rounded-lg text-sm"
+              className="portfolio-button-secondary w-full rounded-lg text-sm"
             >
               Live | GitHub
             </Button>
@@ -101,7 +100,7 @@ const Projects = () => {
   );
 
   return (
-    <section id="projects" className="py-24 px-6 bg-slate-950/50">
+    <section id="projects" className="portfolio-section py-24 px-6 bg-slate-950/50">
       <div className="max-w-6xl mx-auto">
         <div className="flex flex-col items-center mb-16 space-y-2">
           <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-white">

@@ -19,19 +19,19 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-5xl">
-      <div className="bg-background/60 backdrop-blur-xl border border-border/50 rounded-full px-4 py-2 flex justify-between items-center shadow-lg shadow-black/20">
+    <nav aria-label="Main navigation" className="portfolio-navbar fixed top-6 left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-5xl">
+      <div className="portfolio-nav-shell border rounded-full px-4 py-2 flex justify-between items-center">
         
         {/* Branding */}
         <div className="flex items-center gap-2 pl-2">
-  <div className="h-9 w-9 bg-primary/20 border border-primary/50 rounded-lg flex items-center justify-center font-black text-primary text-sm shadow-[0_0_15px_rgba(59,130,246,0.2)]">
+  <div className="portfolio-brand-mark h-9 w-9 border rounded-lg flex items-center justify-center font-black text-sm">
     YS
   </div>
   <span className="font-bold tracking-tight hidden sm:block text-white">Yash Sahane</span>
 </div>
 
         {/* Navigation Items */}
-        <NavigationMenu className="hidden md:flex">
+        <NavigationMenu className="portfolio-nav-links">
           <NavigationMenuList className="gap-1">
             {navItems.map((item) => (
               <NavigationMenuItem key={item.name}>
@@ -40,7 +40,7 @@ const Navbar = () => {
                   href={item.href} 
                   className={cn(
                     navigationMenuTriggerStyle(), 
-                    "bg-transparent hover:bg-accent/50 rounded-full transition-all duration-300"
+                    "portfolio-nav-link bg-transparent rounded-full"
                   )}
                 >
                   {item.name}
@@ -61,7 +61,7 @@ const Navbar = () => {
             <Button 
               variant="outline" 
               size="sm" 
-              className="rounded-full px-6 font-medium border-primary/40 hover:bg-primary hover:text-primary-foreground transition-all active:scale-95"
+              className="portfolio-cv-button rounded-full px-6 font-medium"
             >
               View CV
             </Button>

@@ -45,7 +45,7 @@ const Skills = () => {
   ];
 
   return (
-    <section id="skills" className="py-32 px-6 bg-[#020617] relative overflow-hidden">
+    <section id="skills" className="portfolio-section py-32 px-6 bg-[#020617] relative overflow-hidden">
       {/* Subtle background accent */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[300px] bg-blue-500/5 rounded-full blur-[120px] -z-10" />
 

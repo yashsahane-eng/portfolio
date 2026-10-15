@@ -30,7 +30,7 @@ const Experience = () => {
   ];
 
   return (
-    <section id="experience" className="py-24 px-6 bg-slate-950/50">
+    <section id="experience" className="portfolio-section py-24 px-6 bg-slate-950/50">
       <div className="max-w-4xl mx-auto">
         <div className="flex flex-col items-center mb-16 space-y-2">
           <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">

@@ -4,9 +4,13 @@ const StarCursor = () => {
   const canvasRef = useRef(null);
 
   useEffect(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
     const canvas = canvasRef.current;
+    if (!canvas) return;
     const ctx = canvas.getContext('2d');
     let particles = [];
+    let animationFrame;
 
     const resize = () => {
       canvas.width = window.innerWidth;
@@ -58,17 +62,18 @@ const StarCursor = () => {
           i--;
         }
       }
-      requestAnimationFrame(animate);
+      animationFrame = requestAnimationFrame(animate);
     };
 
     window.addEventListener('resize', resize);
     window.addEventListener('mousemove', handleMove);
     resize();
-    animate();
+    animationFrame = requestAnimationFrame(animate);
 
     return () => {
       window.removeEventListener('resize', resize);
       window.removeEventListener('mousemove', handleMove);
+      cancelAnimationFrame(animationFrame);
     };
   }, []);
 

@@ -12,7 +12,7 @@ import './index.css';
 
 function App() {
   return (
-    <div className="bg-gray-900 min-h-screen text-white relative">
+    <div className="portfolio-shell min-h-screen text-white relative">
       <AnimatedBackground />
       <StarCursor />
       <Navbar />
@@ -37,7 +37,7 @@ function App() {
         </ScrollReveal>
       </main>
 
-      <footer className="py-10 text-center text-gray-500 border-t border-gray-800 relative z-10">
+      <footer className="portfolio-footer py-10 text-center border-t relative z-10">
         <p>© 2026 Yash Sahane  • Pune, India </p>
       </footer>
     </div>

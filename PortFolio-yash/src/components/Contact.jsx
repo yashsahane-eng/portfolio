@@ -22,7 +22,7 @@ const Contact = () => {
               {/* Fix: Ensure the href is correctly formatted and target is handled */}
               <Button 
                 size="lg" 
-                className="rounded-full gap-2 px-8 shadow-lg shadow-primary/20 hover:scale-105 transition-transform" 
+                className="portfolio-button-primary rounded-full gap-2 px-8"
                 asChild
               >
                 <a 

@@ -3,109 +3,359 @@
 @layer base {
   :root {
     --perspective: 1200px;
-    --space-bg: #020617;
+    --space-bg: #080b14;
+    --glass: rgba(255, 255, 255, 0.045);
+    --glass-raised: rgba(255, 255, 255, 0.07);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --accent-indigo: #818cf8;
+    --accent-violet: #a78bfa;
+    --accent-cyan: #22d3ee;
   }
 
-  html, body, #root {
+  html,
+  body,
+  #root {
     margin: 0;
-    padding: 0;
+    min-height: 100%;
     width: 100%;
-    min-height: 100vh;
-    background-color: var(--space-bg);
-    /* Prevents scrollbars from breaking the 3D layout */
-    overflow-x: hidden; 
+    overflow-x: clip;
     scroll-behavior: smooth;
   }
 
   body {
-    /* Space background with deep-field depth */
-    background: radial-gradient(circle at 50% 50%, #0f172a 0%, #020617 100%);
-    color: rgba(255, 255, 255, 0.9);
-    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    min-height: 100vh;
+    background: #080b14;
+    color: #f1f5f9;
+    font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
   }
 
-  /* Global 3D Container class */
-  .floating-3d {
-    transform-style: preserve-3d;
-    perspective: var(--perspective);
+  ::selection {
+    color: #f8fafc;
+    background: rgba(99, 102, 241, 0.45);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    margin: 0;
+    letter-spacing: -0.035em;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  button,
+  a {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--accent-cyan);
+    outline-offset: 3px;
   }
 }
 
-/* --- Space Effects & Animations --- */
+.portfolio-shell {
+  isolation: isolate;
+  background:
+    radial-gradient(ellipse at 14% 10%, rgba(79, 70, 229, 0.16), transparent 34rem),
+    radial-gradient(ellipse at 86% 34%, rgba(8, 145, 178, 0.09), transparent 32rem),
+    linear-gradient(180deg, #080b14 0%, #0b1020 48%, #080b14 100%);
+}
 
-/* Star-like subtle grain */
-body::before {
-  content: "";
-  position: fixed;
+.portfolio-navbar {
+  padding-top: max(1rem, env(safe-area-inset-top));
+}
+
+.portfolio-nav-shell {
+  min-height: 3.75rem;
+  border-color: rgba(203, 213, 225, 0.12);
+  background: rgba(13, 18, 32, 0.76);
+  box-shadow:
+    0 18px 50px rgba(0, 0, 0, 0.34),
+    inset 0 1px 0 rgba(255, 255, 255, 0.07);
+  -webkit-backdrop-filter: blur(22px);
+  backdrop-filter: blur(22px);
+}
+
+.portfolio-brand-mark {
+  color: #c7d2fe;
+  border-color: rgba(129, 140, 248, 0.28);
+  background: linear-gradient(145deg, rgba(99, 102, 241, 0.24), rgba(34, 211, 238, 0.08));
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.portfolio-nav-links {
+  display: flex;
+  min-width: 0;
+}
+
+.portfolio-nav-links [data-slot="navigation-menu-list"] {
+  gap: 0.2rem;
+}
+
+.portfolio-nav-link {
+  min-height: 2.5rem;
+  color: #a6b2c6;
+  font-size: 0.82rem;
+  transition: color 180ms ease, background-color 180ms ease;
+}
+
+.portfolio-nav-link:hover {
+  color: #f1f5f9;
+  background: rgba(255, 255, 255, 0.07);
+}
+
+.portfolio-cv-button {
+  min-height: 2.5rem;
+  border-color: rgba(129, 140, 248, 0.32);
+  background: rgba(99, 102, 241, 0.1);
+  color: #e0e7ff;
+  transition: background-color 180ms ease, border-color 180ms ease, transform 180ms ease;
+}
+
+.portfolio-cv-button:hover {
+  border-color: rgba(129, 140, 248, 0.55);
+  background: rgba(99, 102, 241, 0.2);
+}
+
+.portfolio-button-primary {
+  border: 1px solid rgba(199, 210, 254, 0.22);
+  background: linear-gradient(115deg, #4f46e5, #7c3aed);
+  color: #fff;
+  box-shadow: 0 10px 30px rgba(79, 70, 229, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  transition: transform 180ms ease, box-shadow 180ms ease, filter 180ms ease;
+}
+
+.portfolio-button-primary:hover {
+  filter: brightness(1.1);
+  box-shadow: 0 14px 34px rgba(99, 102, 241, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.22);
+}
+
+.portfolio-button-primary:active,
+.portfolio-button-secondary:active,
+.portfolio-cv-button:active {
+  transform: scale(0.98);
+}
+
+.portfolio-button-secondary {
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.045);
+  color: #e2e8f0;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.045);
+  transition: border-color 180ms ease, background-color 180ms ease, transform 180ms ease;
+}
+
+.portfolio-button-secondary:hover {
+  border-color: rgba(129, 140, 248, 0.34);
+  background: rgba(255, 255, 255, 0.085);
+}
+
+#hero {
+  min-height: min(900px, 100svh);
+  padding-top: 8rem;
+  padding-bottom: 5rem;
+}
+
+#hero h1 {
+  max-width: none;
+  font-size: clamp(3rem, 5.2vw, 5.4rem);
+  line-height: 0.98;
+  letter-spacing: -0.075em;
+}
+
+#hero h1 span {
+  background-image: linear-gradient(105deg, #a5b4fc 5%, #818cf8 50%, #67e8f9 100%);
+}
+
+.portfolio-avatar-stage {
+  top: -7rem;
+}
+
+#hero .portfolio-hero-copy {
+  color: #a9b5c8;
+}
+
+#hero .portfolio-hero-copy strong {
+  color: #f8fafc;
+}
+
+.portfolio-stat-card {
+  border: 1px solid rgba(255, 255, 255, 0.095);
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.065), rgba(255, 255, 255, 0.025));
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.23), inset 0 1px 0 rgba(255, 255, 255, 0.055);
+  -webkit-backdrop-filter: blur(18px);
+  backdrop-filter: blur(18px);
+  transition: transform 200ms ease, border-color 200ms ease, background-color 200ms ease;
+}
+
+.portfolio-stat-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(129, 140, 248, 0.28);
+}
+
+.portfolio-stat-card h3 {
+  color: #a5b4fc;
+}
+
+.portfolio-stat-card > .flex > div {
+  background-color: var(--accent-cyan);
+}
+
+.portfolio-section {
+  position: relative;
+  scroll-margin-top: 6.5rem;
+  background: transparent !important;
+}
+
+.portfolio-section::before {
+  position: absolute;
   top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url("https://grainy-gradients.vercel.app/noise.svg");
-  opacity: 0.05;
-  pointer-events: none;
-  z-index: 50;
+  left: max(1.5rem, calc((100% - 70rem) / 2));
+  right: max(1.5rem, calc((100% - 70rem) / 2));
+  height: 1px;
+  content: "";
+  background: linear-gradient(90deg, transparent, rgba(148, 163, 184, 0.14), transparent);
 }
 
-/* Floating Animation for 3D elements */
-@keyframes float {
-  0%, 100% { transform: translateY(0) rotate(0deg); }
-  50% { transform: translateY(-20px) rotate(2deg); }
+.portfolio-section h2 {
+  color: #f1f5f9;
 }
 
-.animate-float {
-  animation: float 6s ease-in-out infinite;
+.portfolio-section h2 + div {
+  background: linear-gradient(90deg, #6366f1, #22d3ee);
+  box-shadow: 0 0 24px rgba(99, 102, 241, 0.25);
 }
 
-/* Glassmorphism utility for floating cards */
+.portfolio-footer {
+  border-color: rgba(255, 255, 255, 0.08);
+  background: transparent;
+  color: #64748b;
+}
+
+#contact > div > div {
+  border-color: rgba(255, 255, 255, 0.11);
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(99, 102, 241, 0.12), transparent 55%),
+    rgba(255, 255, 255, 0.035);
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.24), inset 0 1px 0 rgba(255, 255, 255, 0.07);
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+}
+
 .glass-card {
-  background: rgba(255, 255, 255, 0.03);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-  transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+  border: 1px solid var(--glass-border);
+  background: var(--glass);
+  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+  transition: transform 200ms ease, border-color 200ms ease, background-color 200ms ease;
 }
 
 .glass-card:hover {
-  background: rgba(255, 255, 255, 0.06);
-  border-color: rgba(59, 130, 246, 0.3);
-  /* "Lifts" the card toward the user on hover */
-  transform: translateY(-10px) translateZ(20px) scale(1.02);
-  box-shadow: 0 35px 60px -15px rgba(59, 130, 246, 0.2);
+  transform: translateY(-3px);
+  border-color: rgba(129, 140, 248, 0.26);
+  background: var(--glass-raised);
+  box-shadow: 0 24px 55px rgba(0, 0, 0, 0.32);
 }
 
-/* Scrollbar styling for the Space theme */
 ::-webkit-scrollbar {
   width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #020617;
+  background: #080b14;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #1e293b;
+  border: 2px solid #080b14;
   border-radius: 10px;
+  background: #29334a;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #3b82f6;
+  background: #6366f1;
 }
 
-/* --- Clean Up Vite Defaults --- */
-h1, h2, h3, h4 {
-  margin: 0;
-  letter-spacing: -0.02em;
+@media (max-width: 767px) {
+  .portfolio-navbar {
+    top: 0.75rem;
+  }
+
+  .portfolio-nav-shell {
+    flex-wrap: wrap;
+    justify-content: space-between;
+    row-gap: 0.45rem;
+    border-radius: 1.25rem;
+    padding: 0.55rem 0.7rem;
+  }
+
+  .portfolio-brand-mark {
+    height: 2.25rem;
+    width: 2.25rem;
+  }
+
+  .portfolio-nav-links {
+    order: 3;
+    flex: 0 0 100%;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    justify-content: flex-start;
+    scrollbar-width: none;
+  }
+
+  .portfolio-nav-links::-webkit-scrollbar {
+    display: none;
+  }
+
+  .portfolio-nav-links ul {
+    flex: 0 0 max-content;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+  }
+
+  .portfolio-nav-link {
+    padding-inline: 0.7rem;
+    font-size: 0.76rem;
+  }
+
+  #hero {
+    min-height: auto;
+    padding-top: 10rem;
+    padding-bottom: 5rem;
+  }
+
+  #hero h1 {
+    font-size: clamp(3rem, 13vw, 4.6rem);
+  }
+
+  .portfolio-section {
+    scroll-margin-top: 8rem;
+  }
 }
 
-a {
-  text-decoration: none;
-  color: inherit;
-  transition: opacity 0.2s;
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
 
-a:hover {
-  opacity: 0.8;
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .portfolio-nav-shell,
+  .portfolio-stat-card,
+  #contact > div > div,
+  .glass-card {
+    background-color: #111827;
+  }
 }
